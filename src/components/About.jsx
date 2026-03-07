@@ -1,25 +1,23 @@
 import { FadeIn } from "./Utils";
+import profileIMG from "../assets/profile.png";
 
 const SKILLS = [
   "JavaScript",
   "TypeScript",
   "React",
-  "Next.js",
-  "Node.js",
+  "c",
   "Python",
-  "PostgreSQL",
-  "Docker",
-  "AWS",
-  "Figma",
+  "Java",
+  "Frontend Development",
+  "Backend Development",
   "Git",
-  "GraphQL",
 ];
 
-const EXPERIENCE = [
-  { role: "Software Engineer", company: "Company Name", period: "2024 — Present" },
-  { role: "Frontend Developer", company: "Company Name", period: "2022 — 2024" },
-  { role: "Junior Developer", company: "Company Name", period: "2021 — 2022" },
-];
+// const EXPERIENCE = [
+//   { role: "Software Engineer", company: "Company Name", period: "2024 — Present" },
+//   { role: "Frontend Developer", company: "Company Name", period: "2022 — 2024" },
+//   { role: "Junior Developer", company: "Company Name", period: "2021 — 2022" },
+// ];
 
 export default function About() {
   return (
@@ -34,36 +32,24 @@ export default function About() {
               <span className="section-title--italic">myself</span>
             </h2>
 
-            <div className="about__photo-placeholder">
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#BBBBB4"
-                strokeWidth="1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </div>
+            <img
+              src={profileIMG}
+              alt="Tashi Gyats"
+              className="profile_picture"
+            />
           </div>
         </FadeIn>
 
         <FadeIn delay={0.15}>
           <div className="about__content">
             <p className="about__bio">
-              Hello! I'm a software developer passionate about creating elegant
-              solutions to complex problems. I enjoy the intersection of design
-              and engineering, where thoughtful code meets beautiful interfaces.
+              Hello! I'm a computer science student at University of Abany. I
+              enjoy the intersection of design and engineering, where thoughtful
+              code meets beautiful interfaces.
             </p>
             <p className="about__bio">
-              When I'm not coding, you'll find me exploring new technologies,
-              contributing to open source, or sketching out ideas for the next
-              project. I believe great software starts with empathy for the
-              people who use it.
+              When I'm not coding, you'll find me reading, at the gym or
+              learning new set up to sweep my sparring partner off their feet.
             </p>
 
             <div className="about__skills">
@@ -77,7 +63,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="about__experience">
+            {/* <div className="about__experience">
               <h3 className="about__subheading">Experience</h3>
               {EXPERIENCE.map((exp, i) => (
                 <div key={i} className="about__exp-row">
@@ -88,7 +74,7 @@ export default function About() {
                   <span className="about__exp-period">{exp.period}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </FadeIn>
       </div>
