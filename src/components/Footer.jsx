@@ -19,7 +19,7 @@ export default function Footer() {
         — Local Time
       </span>
       <span className="footer__text">
-        &copy; {new Date().getFullYear()} Your Name. All rights reserved.
+        &copy; {new Date().getFullYear()} Tashi Gyatso. All rights reserved.
       </span>
     </footer>
   );

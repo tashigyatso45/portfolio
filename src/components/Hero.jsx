@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="hero__grid-bg" />
 
       <FadeIn>
-        <p className="hero__label">Software Developer &amp; Designer</p>
+        <p className="hero__label">Software Developer &amp; Student</p>
       </FadeIn>
 
       <FadeIn delay={0.1}>

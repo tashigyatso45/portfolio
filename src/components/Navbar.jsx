@@ -25,7 +25,7 @@ export default function Navbar() {
         className="navbar__logo"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
-        your.name
+        Tashi Gyatso
       </div>
 
       <div className="navbar__links">
