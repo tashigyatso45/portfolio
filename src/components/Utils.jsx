@@ -1,4 +1,13 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 export function useOnScreen(ref, threshold = 0.15) {
   const [visible, setVisible] = useState(false);
@@ -12,7 +21,7 @@ export function useOnScreen(ref, threshold = 0.15) {
           obs.unobserve(el);
         }
       },
-      { threshold }
+      { threshold },
     );
     obs.observe(el);
     return () => obs.disconnect();

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const NAV_LINKS = [
   { label: "Projects", id: "projects" },
@@ -8,6 +9,8 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [scrollY, setScrollY] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -15,16 +18,25 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (id) => {
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${id}`);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
   };
 
   return (
     <nav className={`navbar ${scrollY > 50 ? "navbar--scrolled" : ""}`}>
-      <div
-        className="navbar__logo"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
+      <div className="navbar__logo" onClick={handleLogoClick}>
         Tashi Gyatso
       </div>
 
@@ -33,7 +45,7 @@ export default function Navbar() {
           <button
             key={link.id}
             className="navbar__link"
-            onClick={() => scrollTo(link.id)}
+            onClick={() => scrollToSection(link.id)}
           >
             {link.label}
           </button>

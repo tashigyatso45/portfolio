@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FadeIn, ArrowIcon } from "./Utils";
 
 export default function ProjectCard({ project, index }) {
@@ -6,8 +7,8 @@ export default function ProjectCard({ project, index }) {
 
   return (
     <FadeIn delay={index * 0.08}>
-      <a
-        href={project.link}
+      <Link
+        to={`/project/${project.id}`}
         className="project-card"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -16,22 +17,31 @@ export default function ProjectCard({ project, index }) {
           className={`project-card__thumbnail ${hovered ? "project-card__thumbnail--hovered" : ""}`}
           style={{ backgroundColor: project.color }}
         >
-          <div className="project-card__placeholder">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1A1A18"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-              <line x1="8" y1="21" x2="16" y2="21" />
-              <line x1="12" y1="17" x2="12" y2="21" />
-            </svg>
-          </div>
+          {project.thumbnail ? (
+            <img
+              src={project.thumbnail}
+              alt={project.title}
+              className="project-card__img"
+              loading="lazy"
+            />
+          ) : (
+            <div className="project-card__placeholder">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#1A1A18"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+          )}
 
           <div
             className={`project-card__view-label ${hovered ? "project-card__view-label--visible" : ""}`}
@@ -57,7 +67,7 @@ export default function ProjectCard({ project, index }) {
             </span>
           ))}
         </div>
-      </a>
+      </Link>
     </FadeIn>
   );
 }

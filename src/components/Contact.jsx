@@ -1,9 +1,10 @@
 import { FadeIn } from "./Utils";
+import resumePDF from "../assets/Resume.pdf";
 
 const SOCIAL_LINKS = [
-  { label: "GitHub", href: "https://github.com/tashigyatso45" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/tashigyatso45" },
-  { label: "Resume", href: "https://drive.google.com/file/d/1XzXzXzXzXzXzXzXzXzXzXzXzXzXzXzX/view?usp=sharing" },
+  { label: "GitHub", href: "https://github.com/tashigyatso45", external: true },
+  { label: "LinkedIn", href: "https://linkedin.com/in/tashigyatso45", external: true },
+  { label: "Resume", href: resumePDF, download: "Tashi_Gyatso_Resume.pdf" },
 ];
 
 export default function Contact() {
@@ -36,6 +37,8 @@ export default function Contact() {
                 key={link.label}
                 href={link.href}
                 className="contact__social-link"
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(link.download ? { download: link.download } : {})}
               >
                 {link.label}
               </a>

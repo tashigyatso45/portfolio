@@ -34,7 +34,7 @@ export default function About() {
 
             <img
               src={profileIMG}
-              alt="Tashi Gyats"
+              alt="Tashi Gyatso"
               className="profile_picture"
             />
           </div>
